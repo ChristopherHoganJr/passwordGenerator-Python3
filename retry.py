@@ -1,7 +1,5 @@
-
-
 def tryAgain():
-    tryAgainAnswer = int(input('Try Again? 1 for \'Yes\' | 2 for \'No\''))
+    tryAgainAnswer = int(input('Try Again? \n1. for \'Yes\'  \n2. for \'No\'\n'))
     if tryAgainAnswer == 1:
         return True
     elif tryAgainAnswer == 2:
@@ -9,4 +7,3 @@ def tryAgain():
         return False
     else:
         tryAgain()
-        return

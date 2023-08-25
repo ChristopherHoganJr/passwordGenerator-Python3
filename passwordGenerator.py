@@ -1,8 +1,10 @@
-from getPasswordLen import pwLength
 from generatorLogic import logic
 from retry import tryAgain
 
-gameActive = True
+
+# Set appActive to True
+appActive = True
+
 # Greetings / Introduction
 print()
 print('-------------------------------------')
@@ -11,21 +13,22 @@ print('-------------------------------------')
 print()
 
 def createPW():
-    # Ask the user how many characters they'd like their password to be
-    print('-------------------------------------------')
-    passwordLength = pwLength()
+    lowerCharacters = int(input("How many lowercase characters would you like?: "))
+    upperCharacters = int(input("How many uppercase characters would you like?: "))
+    symbolCharacters = int(input("How many symbol characters would you like?: "))
+    numberCharacters = int(input("How many number characters would you like?: "))
     # Randomly pick a character and store each character in a list
-    newPW = logic(passwordLength)
+    newPW = logic(lowerCharacters, upperCharacters, symbolCharacters, numberCharacters)
     # Join the list together in a string
     encryptedPW = ''.join(newPW)
     # Give the user their new password
-    print('---------------------')
+    print('\n---------------------')
     print(f'Your new password is: {encryptedPW}')
-    print('')
+    print('---------------------\n')
 
-while gameActive != False:
+while appActive:
     createPW()
-    gameActive = tryAgain()
+    appActive = tryAgain()
 
 
 
